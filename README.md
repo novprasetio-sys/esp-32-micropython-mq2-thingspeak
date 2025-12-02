@@ -10,13 +10,13 @@ from machine import ADC, Pin
 # -------------------------
 # WIFI CONFIG
 # -------------------------
-WIFI_SSID = "FEEDING"
-WIFI_PASS = "autofeeding"
+WIFI_SSID = "wifi kamu"
+WIFI_PASS = "password wifi kamu"
 
 # -------------------------
 # THINGSPEAK CONFIG
 # -------------------------
-API_KEY = "FIIUB4XQCNVZGPOP"
+API_KEY = "API key kamu"
 URL = "https://api.thingspeak.com/update"
 
 # -------------------------
