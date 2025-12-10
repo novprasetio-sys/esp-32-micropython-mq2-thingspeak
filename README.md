@@ -1,36 +1,50 @@
-# ESP32 MicroPython MQ2 → ThingSpeak
+# ESP32 MicroPython MQ2 ThingSpeak
 
-Project sederhana untuk mengirimkan data sensor MQ-2 ke ThingSpeak Cloud menggunakan ESP32 + MicroPython.
+Simple project to send MQ-2 sensor data to ThingSpeak Cloud using
+ESP32 + MicroPython.
 
-Repository ini berisi:
-- Kode MicroPython untuk membaca sensor MQ2  
-- Mengirim data ke ThingSpeak tiap 15 detik  
-- Contoh konfigurasi WiFi & API  
+This repository contains: - MicroPython code to read MQ2 sensor\
+- Send data to ThingSpeak every 15 seconds\
+- WiFi & API configuration example
 
-## Hardware yang Digunakan
-- ESP32  
-- Sensor MQ-2 (analog)  
-- Kabel jumper  
+------------------------------------------------------------------------
 
-Pin yang digunakan:
-- MQ2 → pin ADC1_CH0 (GPIO 36)
+## Hardware Used
 
-## Instalasi
-Pastikan ESP32 sudah ter-flash MicroPython, lalu upload file `.py` menggunakan Thonny / ampy / rshell.
+-   ESP32\
+-   MQ-2 Sensor (analog)\
+-   Jumper wires
 
-## Konfigurasi WiFi & ThingSpeak
-Edit bagian ini sesuai router dan API key kamu:
+### Pin Usage
 
-```python
-WIFI_SSID = "wifi kamu"
-WIFI_PASS = "password wifi kamu"
+-   MQ2 ADC1_CH0 (GPIO 36)
 
-API_KEY = "API key kamu"
+------------------------------------------------------------------------
+
+## Installation
+
+Ensure ESP32 is flashed with MicroPython, then upload `.py` files using
+Thonny / ampy / rshell.
+
+------------------------------------------------------------------------
+
+## WiFi & ThingSpeak Config
+
+Edit these values to match your router + API key:
+
+``` python
+WIFI_SSID = "your wifi"
+WIFI_PASS = "wifi password"
+
+API_KEY = "your API key"
 URL = "https://api.thingspeak.com/update"
+```
 
+------------------------------------------------------------------------
 
-# berikut kode micro python 
+## MicroPython Source Code
 
+``` python
 import network
 import urequests
 import time
@@ -80,3 +94,4 @@ while True:
     send_to_thingspeak(adc_value)
 
     time.sleep(15)  # minimum interval ThingSpeak
+```
